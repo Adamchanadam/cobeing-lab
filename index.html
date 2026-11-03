@@ -4,23 +4,65 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>測試首頁｜網頁可讀性技術測試</title>
-<meta name="description" content="網頁可讀性技術測試：比較六種網頁格式能否被搜尋引擎及 AI 讀取。">
+<meta name="description" content="網頁可讀性技術測試：以六種格式及獨有測試碼，量度搜尋引擎及 AI 助手能否讀取不同格式的網頁內容。">
 <link rel="canonical" href="https://lab.cobeing.uk/">
 <style>body{font-family:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;max-width:760px;margin:2rem auto;padding:0 16px;line-height:1.7;color:#1d2a33;background:#fff}h1{font-size:1.6rem}h2{font-size:1.2rem;margin-top:2rem}.code{font-weight:700}footer{margin-top:3rem;font-size:.85rem;color:#5b6670}a{color:#0f6e6a}</style>
-
+<style>table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{border:1px solid #c9d3d8;padding:.4rem .6rem;text-align:left;vertical-align:top}th{background:#eef4f3}</style>
 </head>
 <body>
 <h1>網頁可讀性技術測試</h1>
-<p>本網站是一項公開的網頁可讀性技術測試。我們把同一類資料以不同格式發布：純文字、圖片、掃描式 PDF、文字式 PDF、由程式載入的文字，以及附結構化資料的問答。每一種格式都有一個獨有的測試碼。之後我們會觀察搜尋引擎及 AI 助手能否找到並正確說出這些測試碼，從而了解哪些網頁格式能被機器讀取，以及新網頁需要多久才被收錄。測試碼只是隨機字詞，沒有其他意思；本網站不涉及任何個人資料，亦不代表任何機構或學校。</p>
-<h2>六種格式</h2>
+<p>本網站是一項公開的技術測試，量度搜尋引擎及 AI 助手能否讀取不同格式的網頁內容，以及一個新網站要多久才被它們找到。</p>
+<p>首頁更新：2026-11-04</p>
+
+<h2>一、為何要測</h2>
+<p>很多網站把重要資料放在圖片、掃描文件或由程式載入的內容中。人在螢幕上看得到，不代表機器讀得到。今天越來越多人直接問 AI 助手，而 AI 只能根據它讀得到的文字作答。本測試用最簡單的方法，分辨哪些格式機器讀得到、哪些讀不到。</p>
+
+<h2>二、做法</h2>
 <ul>
-<li><a href="t1-text.html">純文字網頁</a>（plain HTML text）</li>
-<li><a href="t2-image.html">圖片網頁</a>（image only, no alt text）</li>
-<li><a href="t3-scan.html">掃描式 PDF</a>（scanned PDF without text layer）</li>
-<li><a href="t4-textpdf.html">文字式 PDF</a>（PDF with text layer）</li>
-<li><a href="t5-script.html">程式載入的文字</a>（text inserted by JavaScript）</li>
-<li><a href="t6-faq.html">問答格式網頁（附結構化資料）</a>（plain text with FAQPage structured data）</li>
+<li>同一類資料以六種格式各發布一頁（見第六節）。</li>
+<li>每頁有一個獨有的測試碼，例如「顏色-地方-四位數字」這類隨機組合。測試碼在網上沒有其他出處，所以 AI 若能說出某一頁的測試碼，就證明它讀到那一頁、那種格式的內容；說不出或說錯，就是讀不到。</li>
+<li>本首頁及網站任何地方都不會把全部測試碼列在一起，以免機器只讀一頁便知道所有答案。</li>
+<li>網站只有靜態網頁，不收集任何個人資料，不使用 cookie 或追蹤程式。</li>
 </ul>
+
+<h2>三、想測甚麼：三層測試</h2>
+<table>
+<tr><th>層次</th><th>問題</th><th>怎樣測</th></tr>
+<tr><td>1. 直接讀取</td><td>把網址交給 AI，它讀不讀到這種格式？</td><td>把各頁網址貼給幾個常用 AI 助手，請它說出該頁的測試碼；看不到便如實說看不到。</td></tr>
+<tr><td>2. 搜尋引擎收錄</td><td>搜尋引擎收錄網頁後，有沒有把圖片、PDF 或程式載入的文字也一併讀入？</td><td>在搜尋引擎搜尋各測試碼，看能否找到對應的頁面；並記錄每頁被收錄的日期。</td></tr>
+<tr><td>3. AI 自行搜尋</td><td>不給網址，AI 回答問題時會否自己找到並引用這些頁面？</td><td>只問「這個網站某格式那一頁的測試碼是甚麼」，問題本身不含測試碼，看 AI 能否答對及引用本網站。</td></tr>
+</table>
+
+<h2>四、流程及時間表</h2>
+<ol>
+<li>2026-11-03：網站發布，向 Google 提交網站地圖及要求收錄。約 5 小時後，7 個網頁中有 6 個已被收錄。</li>
+<li>2026-11-04：先做第 3 層首輪，再做第 2 層，最後做第 1 層。第 1 層會令 AI 讀過測試頁，所以排在最後，以免影響第 3 層的起點。</li>
+<li>2026-11-06、11-10：第 3 層第二、三輪；某頁一旦被某個 AI 答對，之後不再重複問。</li>
+<li>2026-11-17、12-01：只重測到時仍未被找到的頁面，以量度最長需時。</li>
+</ol>
+<p>測試時使用不保留記憶的對話或無痕視窗，以免 AI 的記憶或搜尋紀錄影響答案。每次測試都記錄日期、AI 工具名稱及答案。AI 的答案每次可能不同，工具亦會更新，所以結果只代表測試當時的情況。</p>
+
+<h2>五、如何解讀結果</h2>
+<table>
+<tr><th>結果</th><th>意思</th></tr>
+<tr><td>純文字頁讀得到，圖片頁讀不到</td><td>寫在圖片內的文字，機器看不到；重要資料要另外提供文字版本。</td></tr>
+<tr><td>文字式 PDF 讀得到，掃描式 PDF 讀不到</td><td>掃描文件要先轉成有文字層的文件，或另附網頁文字。</td></tr>
+<tr><td>程式載入的文字讀不到</td><td>部分讀取工具不執行程式；重要內容應直接寫在網頁原始碼中。</td></tr>
+<tr><td>問答頁與純文字頁結果相同</td><td>結構化資料沒有額外作用，寫清楚文字已足夠；若問答頁較快被找到或引用，則結構化資料有幫助。</td></tr>
+<tr><td>第 1 層讀得到，第 3 層長期找不到</td><td>AI 有能力讀，但未找到這個新網站；問題在於網站是否被收錄及有否知名度，而不在格式。</td></tr>
+</table>
+<p>本網站是全新網域，沒有任何知名度，所以第 3 層的結果屬保守估計：已有知名度的網站通常會更快被找到。</p>
+
+<h2>六、六種格式</h2>
+<ul>
+<li><a href="t1-text.html">純文字網頁</a>（plain HTML text）：測試碼以普通網頁文字寫在本頁正文中。</li>
+<li><a href="t2-image.html">圖片網頁</a>（image only, no alt text）：測試碼只寫在下面的圖片內，圖片沒有替代文字（alt）。</li>
+<li><a href="t3-scan.html">掃描式 PDF</a>（scanned PDF without text layer）：測試碼只在下面連結的 PDF 內。</li>
+<li><a href="t4-textpdf.html">文字式 PDF</a>（PDF with text layer）：測試碼只在下面連結的 PDF 內。</li>
+<li><a href="t5-script.html">程式載入的文字</a>（text inserted by JavaScript）：測試碼不在網頁原始碼中，而是由瀏覽器執行 JavaScript 後才顯示。</li>
+<li><a href="t6-faq.html">問答格式網頁（附結構化資料）</a>（plain text with FAQPage structured data）：測試碼以問答形式寫在本頁正文，並附 schema.org FAQPage 結構化資料。</li>
+</ul>
+<p>本網站不涉及任何個人資料，亦不代表任何機構或學校。</p>
 <footer>網頁可讀性技術測試｜lab.cobeing.uk｜發布日期：2026-11-03｜<a href="https://lab.cobeing.uk/">回到測試首頁</a></footer>
 </body>
 </html>
